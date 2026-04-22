@@ -469,26 +469,14 @@ h1, h2, h3, h4, .title, .section-title {
     text-align: center;
 }
 
-.team-photo-placeholder {
+.team-photo {
     width: 80px;
     height: 105px;
-    background-color: #ebebeb;
     border-radius: 50%; /* Formato Oval / Elipse */
     margin: 0 auto 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    object-fit: cover;
     border: 1px solid #ccc;
-    overflow: hidden;
-}
-
-.team-photo-placeholder i {
-    font-size: 2rem !important;
-}
-
-.team-photo-placeholder span {
-    display: none; /* Oculta o texto "1 foto aqui" pois a caixa agora é pequenininha */
 }
 
 .team-name {
