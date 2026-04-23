@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const { code } = req.query;
 
   if (!code) {
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
 (function() {
   function receiveMessage(e) {
     window.opener.postMessage(
-      'authorization:github:success:${JSON.stringify({token: '__TOKEN__', provider: 'github'})}'.replace('__TOKEN__', ${JSON.stringify(token)}),
+      'authorization:github:success:' + JSON.stringify({token: ${JSON.stringify(token)}, provider: 'github'}),
       e.origin
     );
   }
@@ -58,4 +58,4 @@ export default async function handler(req, res) {
     console.error(err);
     res.status(500).send('Internal server error durante autenticação');
   }
-}
+};
