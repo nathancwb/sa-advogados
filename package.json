@@ -1,8 +1,0 @@
-{
-  "name": "sa-advogados-site",
-  "version": "1.0.0",
-  "description": "Website institucional SA Advogados com CMS embutido",
-  "scripts": {
-    "build": "node build.js"
-  }
-}
