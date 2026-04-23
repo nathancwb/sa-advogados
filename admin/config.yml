@@ -3,6 +3,7 @@ backend:
   repo: nathancwb/sa-advogados
   branch: main
   client_id: Ov23li8Bd6bakoBAZbDr
+  auth_type: pkce
 
 media_folder: assets/images/uploads
 public_folder: /assets/images/uploads
