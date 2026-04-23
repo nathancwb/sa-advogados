@@ -1,0 +1,20 @@
+{
+  "phone": "5548991381200",
+  "phone_display": "(48) 99138-1200",
+  "email": "comercial@saadvogados.com",
+  "instagram": "https://www.instagram.com/sa.sadvogados",
+  "addresses": [
+    {
+      "label": "Matriz - Florianópolis/SC",
+      "street": "Av. Pref. Osmar Cunha, 416, Sala 1108",
+      "complement": "Centro",
+      "city_state_cep": "Florianópolis, SC — CEP 88015-100"
+    },
+    {
+      "label": "Filial - Porto Velho/RO",
+      "street": "Av. Sete de Setembro, 1925",
+      "complement": "Nossa Senhora das Graças",
+      "city_state_cep": "Porto Velho, RO — CEP 76804-123"
+    }
+  ]
+}

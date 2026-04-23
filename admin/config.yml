@@ -1,0 +1,89 @@
+backend:
+  name: github
+  repo: nathancwb/sa-advogados
+  branch: main
+
+media_folder: assets/images/uploads
+public_folder: /assets/images/uploads
+
+locale: pt
+
+collections:
+
+  # ─── ARTIGOS ────────────────────────────────────────────────────────────────
+  - name: artigos
+    label: "✍️ Artigos"
+    label_singular: Artigo
+    folder: content/artigos
+    create: true
+    slug: "{{slug}}"
+    format: json
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { name: title, label: "Título do Artigo", widget: string }
+      - { name: slug, label: "URL (sem espaços/acentos, ex: stf-icms-2026)", widget: string }
+      - { name: date, label: "Data de publicação", widget: datetime, format: "DD [de] MMMM[,] YYYY", date_format: "DD/MM/YYYY", time_format: false }
+      - { name: author, label: "Autor(a)", widget: select, options: ["Luciana Azevedo", "Artur Souza"] }
+      - { name: category, label: "Categoria", widget: select, options: ["Direito Tributário", "Direito Administrativo", "Direito Médico", "Direito Empresarial", "Direito Civil", "Direito Penal", "LGPD e Direito Digital", "Compliance e ESG", "Direito Concorrencial", "Arbitragem"] }
+      - { name: excerpt, label: "Resumo (aparece no card da listagem)", widget: text }
+      - { name: thumbnail, label: "Imagem de capa", widget: image, required: false }
+      - { name: content, label: "Conteúdo completo do artigo", widget: markdown }
+
+  # ─── NOTÍCIAS ───────────────────────────────────────────────────────────────
+  - name: noticias
+    label: "📰 Notícias"
+    label_singular: Notícia
+    folder: content/noticias
+    create: true
+    slug: "{{slug}}"
+    format: json
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { name: title, label: "Título da Notícia", widget: string }
+      - { name: slug, label: "URL (sem espaços/acentos, ex: nova-lei-lgpd)", widget: string }
+      - { name: date, label: "Data de publicação", widget: datetime, format: "DD [de] MMMM[,] YYYY", date_format: "DD/MM/YYYY", time_format: false }
+      - { name: source, label: "Fonte (opcional, ex: Conjur, STJ)", widget: string, required: false }
+      - { name: excerpt, label: "Resumo (aparece no card)", widget: text }
+      - { name: thumbnail, label: "Imagem da notícia", widget: image, required: false }
+      - { name: content, label: "Texto completo da notícia", widget: markdown }
+
+  # ─── VÍDEOS ─────────────────────────────────────────────────────────────────
+  - name: videos
+    label: "🎬 Vídeos"
+    label_singular: Vídeo
+    folder: content/videos
+    create: true
+    slug: "{{slug}}"
+    format: json
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { name: title, label: "Título do Vídeo", widget: string }
+      - { name: slug, label: "URL (sem espaços/acentos, ex: direitos-tributarios-2026)", widget: string }
+      - { name: date, label: "Data de publicação", widget: datetime, format: "DD [de] MMMM[,] YYYY", date_format: "DD/MM/YYYY", time_format: false }
+      - { name: author, label: "Apresentador(a)", widget: select, options: ["Luciana Azevedo", "Artur Souza"] }
+      - { name: youtube_id, label: "ID do YouTube (ex: dQw4w9WgXcQ)", widget: string, hint: "Copie apenas o código após ?v= no link do YouTube" }
+      - { name: thumbnail, label: "Thumbnail personalizada (opcional, usa a do YouTube se vazio)", widget: image, required: false }
+      - { name: excerpt, label: "Descrição curta (aparece no card)", widget: text }
+
+  # ─── CONFIGURAÇÕES DO SITE ───────────────────────────────────────────────────
+  - name: settings
+    label: "⚙️ Configurações do Site"
+    files:
+      - name: contact
+        label: "Informações de Contato"
+        file: content/settings.json
+        format: json
+        fields:
+          - { name: phone, label: "Telefone / WhatsApp (com código do país)", widget: string, hint: "Ex: 5548991381200" }
+          - { name: phone_display, label: "Telefone (exibição)", widget: string, hint: "Ex: (48) 99138-1200" }
+          - { name: email, label: "E-mail", widget: string }
+          - { name: instagram, label: "Link do Instagram", widget: string }
+          - name: addresses
+            label: "Endereços"
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: "Rótulo (ex: Matriz - Florianópolis/SC)", widget: string }
+              - { name: street, label: "Rua e número", widget: string }
+              - { name: complement, label: "Complemento", widget: string, required: false }
+              - { name: city_state_cep, label: "Cidade, Estado, CEP", widget: string }
