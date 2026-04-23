@@ -80,6 +80,15 @@ collections:
           - { name: phone_display, label: "Telefone (exibição)", widget: string, hint: "Ex: (48) 99138-1200" }
           - { name: email, label: "E-mail", widget: string }
           - { name: instagram, label: "Link do Instagram", widget: string }
+          - name: seo
+            label: "🔎 SEO e Metadados (Google e Redes Sociais)"
+            widget: object
+            fields:
+              - { name: title, label: "Título do Site (Aparece no Google)", widget: string }
+              - { name: description, label: "Descrição (Resumo para o Google)", widget: text }
+              - { name: keywords, label: "Palavras-chave (separadas por vírgula)", widget: string }
+              - { name: og_image, label: "Imagem de Compartilhamento (WhatsApp/Facebook)", widget: image, required: false }
+              - { name: favicon, label: "Favicon (Ícone da aba do navegador)", widget: image, required: false }
           - name: addresses
             label: "Endereços"
             widget: list

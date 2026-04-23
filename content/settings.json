@@ -3,6 +3,13 @@
   "phone_display": "(48) 99138-1200",
   "email": "comercial@saadvogados.com",
   "instagram": "https://www.instagram.com/sa.sadvogados",
+  "seo": {
+    "title": "SA Advogados | Escritório de Advocacia",
+    "description": "Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.",
+    "keywords": "advogado florianópolis, advogado porto velho, direito tributário, direito médico, direito público",
+    "og_image": "/assets/img/simbolo.png",
+    "favicon": "/favicon.png"
+  },
   "addresses": [
     {
       "label": "Matriz - Florianópolis/SC",
