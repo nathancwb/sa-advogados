@@ -457,6 +457,50 @@ h1, h2, h3, h4, .title, .section-title {
     margin-bottom: 1.5rem;
 }
 
+/* MISSÃO, VISÃO E VALORES */
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: 2rem;
+}
+
+.mvv-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-gray);
+    padding: var(--spacing-md);
+    text-align: left;
+}
+
+.mvv-icon {
+    display: inline-flex;
+    font-size: 1.5rem;
+    color: var(--color-gray);
+    margin-bottom: 1rem;
+}
+
+.mvv-title {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    color: var(--color-gray);
+}
+
+.mvv-text {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .mvv-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .team-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
