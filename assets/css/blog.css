@@ -1,5 +1,16 @@
 /* SA ADVOGADOS - Estilos do Blog */
 
+/* Layout: footer always at bottom */
+body.interior-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+body.interior-page .main {
+    flex: 1;
+}
+
+
 /* Page Header (Interno) */
 .interior-page .header {
     background: rgba(255, 255, 255, 0.95);

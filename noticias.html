@@ -75,7 +75,8 @@
     (async function() {
         const grid = document.getElementById('noticias-grid');
         const placeholder = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop';
-        const idx = await fetch('/content/noticias-index.json').then(r => r.json());
+        try {
+            const idx = await fetch('/content/noticias-index.json').then(r => r.json());
             const results = await Promise.allSettled(
                 idx.noticias.map(slug => fetch('/content/noticias/' + slug + '.json').then(r => r.json()).then(d => ({...d, slug})))
             );
@@ -86,11 +87,11 @@
             }
             grid.innerHTML = items.map(function(n, i) {
                 return '<article class="blog-card fade-up visible" style="--delay:' + (i % 3) + '">' +
-                    '<a href="noticia-interna.html?slug=' + n.slug + '" class="blog-img-link">' +
+                    '<a href="/noticia?slug=' + n.slug + '" class="blog-img-link">' +
                     '<img src="' + (n.thumbnail || placeholder) + '" alt="' + n.title + '" class="blog-img" loading="lazy">' +
                     '</a><div class="blog-content">' +
                     '<span class="blog-tag">' + (n.source ? 'Fonte: ' + n.source : 'Notícia') + '</span>' +
-                    '<h3 class="blog-title"><a href="noticia-interna.html?slug=' + n.slug + '">' + n.title + '</a></h3>' +
+                    '<h3 class="blog-title"><a href="/noticia?slug=' + n.slug + '">' + n.title + '</a></h3>' +
                     '<p class="blog-excerpt">' + n.excerpt + '</p>' +
                     '<div class="blog-meta"><span class="blog-date">' + n.date + '</span></div>' +
                     '</div></article>';

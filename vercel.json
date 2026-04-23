@@ -1,1 +1,8 @@
-{}
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/artigo", "destination": "/artigo-interno.html" },
+    { "source": "/noticia", "destination": "/noticia-interna.html" }
+  ]
+}
