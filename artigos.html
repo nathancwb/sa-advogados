@@ -124,28 +124,30 @@
     (async function() {
         const grid = document.getElementById('artigos-grid');
         const placeholder = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop';
-        try {
-            const idx = await fetch('/content/artigos-index.json').then(r => r.json());
-            const articles = await Promise.all(
-                idx.artigos.map(slug => fetch(`/content/artigos/${slug}.json`).then(r => r.json()).then(d => ({...d, slug})))
+        const idx = await fetch('/content/artigos-index.json').then(r => r.json());
+            const results = await Promise.allSettled(
+                idx.artigos.map(slug => fetch('/content/artigos/' + slug + '.json').then(r => r.json()).then(d => ({...d, slug})))
             );
-            grid.innerHTML = articles.map((a, i) => `
-                <article class="blog-card fade-up" style="--delay:${i % 3}">
-                    <a href="artigo-interno.html?slug=${a.slug}" class="blog-img-link">
-                        <img src="${a.thumbnail || placeholder}" alt="${a.title}" class="blog-img" loading="lazy">
-                    </a>
-                    <div class="blog-content">
-                        <span class="blog-tag">${a.category || ''}</span>
-                        <h3 class="blog-title"><a href="artigo-interno.html?slug=${a.slug}">${a.title}</a></h3>
-                        <p class="blog-excerpt">${a.excerpt}</p>
-                        <div class="blog-meta">
-                            <span class="blog-author">Por ${a.author}</span>
-                            <span class="blog-date">${a.date}</span>
-                        </div>
-                    </div>
-                </article>`).join('');
+            const articles = results.filter(r => r.status === 'fulfilled').map(r => r.value);
+            if (articles.length === 0) {
+                grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#999;">Nenhum artigo encontrado.</p>';
+                return;
+            }
+            grid.innerHTML = articles.map(function(a, i) {
+                return '<article class="blog-card fade-up visible" style="--delay:' + (i % 3) + '">' +
+                    '<a href="artigo-interno.html?slug=' + a.slug + '" class="blog-img-link">' +
+                    '<img src="' + (a.thumbnail || placeholder) + '" alt="' + a.title + '" class="blog-img" loading="lazy">' +
+                    '</a><div class="blog-content">' +
+                    '<span class="blog-tag">' + (a.category || '') + '</span>' +
+                    '<h3 class="blog-title"><a href="artigo-interno.html?slug=' + a.slug + '">' + a.title + '</a></h3>' +
+                    '<p class="blog-excerpt">' + a.excerpt + '</p>' +
+                    '<div class="blog-meta">' +
+                    '<span class="blog-author">Por ' + a.author + '</span>' +
+                    '<span class="blog-date">' + a.date + '</span>' +
+                    '</div></div></article>';
+            }).join('');
         } catch(e) {
-            grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#999;">Não foi possível carregar os artigos.</p>';
+            grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:2rem;color:#666;">Não foi possível carregar os artigos. Tente recarregar a página.</p>';
         }
     })();
     </script>

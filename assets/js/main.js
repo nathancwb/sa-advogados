@@ -55,8 +55,30 @@ document.addEventListener('DOMContentLoaded', () => {
             const icon = navToggle.querySelector('i');
             icon.classList.add('ri-menu-4-line');
             icon.classList.remove('ri-close-line');
+            if(window.scrollY <= 50) {
+                header.style.backgroundColor = 'transparent';
+                header.classList.remove('scrolled');
+            }
         }
     }));
+
+    // Also close menu when clicking dropdown items
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('dropdown-item') && navMenu && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            if (navToggle) {
+                const icon = navToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('ri-menu-4-line');
+                    icon.classList.remove('ri-close-line');
+                }
+            }
+            if(window.scrollY <= 50) {
+                header.style.backgroundColor = 'transparent';
+                header.classList.remove('scrolled');
+            }
+        }
+    });
 
     // --- 3. SCROLL REVEAL ANIMATIONS (Intersection Observer) ---
     const observerOptions = {

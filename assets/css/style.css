@@ -749,15 +749,15 @@ h1, h2, h3, h4, .title, .section-title {
     }
     
     .brand-logo { 
-        width: 140px;
-        height: 36px; 
+        width: 180px;
+        height: 46px; 
     }
     .logo-img { 
-        height: 160px; 
+        height: 210px; 
         width: auto !important;
         max-width: none !important;
-        top: -62px;
-        left: -15px;
+        top: -82px;
+        left: -20px;
     }
     .nav-link { color: var(--color-gray) !important; font-size: 1.5rem; }
     .header:not(.scrolled) .nav-link { color: var(--color-gray); }
