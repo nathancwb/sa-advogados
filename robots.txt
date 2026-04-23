@@ -1,6 +1,23 @@
+# Allow all search engines
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
+
+# Explicitly allow Facebook/WhatsApp crawler
+User-agent: facebookexternalhit
+Allow: /
+
+# Explicitly allow WhatsApp link preview bot
+User-agent: WhatsApp
+Allow: /
+
+# Explicitly allow Twitterbot
+User-agent: Twitterbot
+Allow: /
+
+# Explicitly allow LinkedInBot
+User-agent: LinkedInBot
+Allow: /
 
 Sitemap: https://www.saadvogados.com/sitemap.xml
