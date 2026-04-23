@@ -3,7 +3,7 @@ export default function handler(req, res) {
   const protocol = host.includes('localhost') ? 'http' : 'https';
   const redirectUri = `${protocol}://${host}/api/callback`;
 
-  const clientId = (process.env.GITHUB_CLIENT_ID || '').trim();
+  const clientId = (process.env.GH_CLIENT_ID || '').trim();
 
   const params = new URLSearchParams({
     client_id: clientId,

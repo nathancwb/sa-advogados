@@ -18,8 +18,8 @@ export default async function handler(req, res) {
         Accept: 'application/json',
       },
       body: JSON.stringify({
-        client_id: (process.env.GITHUB_CLIENT_ID || '').trim(),
-        client_secret: (process.env.GITHUB_CLIENT_SECRET || '').trim(),
+        client_id: (process.env.GH_CLIENT_ID || '').trim(),
+        client_secret: (process.env.GH_CLIENT_SECRET || '').trim(),
         code,
         redirect_uri: redirectUri,
       }),
