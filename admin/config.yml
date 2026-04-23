@@ -12,7 +12,7 @@ collections:
 
   # ─── ARTIGOS ────────────────────────────────────────────────────────────────
   - name: artigos
-    label: "✍️ Artigos"
+    label: "Artigos"
     label_singular: Artigo
     folder: content/artigos
     create: true
@@ -31,7 +31,7 @@ collections:
 
   # ─── NOTÍCIAS ───────────────────────────────────────────────────────────────
   - name: noticias
-    label: "📰 Notícias"
+    label: "Notícias"
     label_singular: Notícia
     folder: content/noticias
     create: true
@@ -49,7 +49,7 @@ collections:
 
   # ─── VÍDEOS ─────────────────────────────────────────────────────────────────
   - name: videos
-    label: "🎬 Vídeos"
+    label: "Vídeos"
     label_singular: Vídeo
     folder: content/videos
     create: true
@@ -67,7 +67,7 @@ collections:
 
   # ─── CONFIGURAÇÕES DO SITE ───────────────────────────────────────────────────
   - name: settings
-    label: "⚙️ Configurações do Site"
+    label: "Configurações do Site"
     files:
       - name: contact
         label: "Informações de Contato"
@@ -87,3 +87,4 @@ collections:
               - { name: street, label: "Rua e número", widget: string }
               - { name: complement, label: "Complemento", widget: string, required: false }
               - { name: city_state_cep, label: "Cidade, Estado, CEP", widget: string }
+
