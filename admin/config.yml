@@ -2,8 +2,8 @@ backend:
   name: github
   repo: nathancwb/sa-advogados
   branch: main
-  client_id: Ov23li8Bd6bakoBAZbDr
-  auth_type: pkce
+  base_url: https://www.saadvogados.com
+  auth_endpoint: api/auth
 
 media_folder: assets/images/uploads
 public_folder: /assets/images/uploads
