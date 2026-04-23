@@ -1,8 +1,1 @@
-{
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "functions": {
-    "api/auth.js": { "runtime": "nodejs18.x" },
-    "api/callback.js": { "runtime": "nodejs18.x" }
-  }
-}
+{}
