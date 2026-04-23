@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Notícias Jurídicas | SA Advogados — Florianópolis e Porto Velho</title>
+    <meta name="description" content="Acompanhe as principais notícias jurídicas que impactam empresas e profissionais em Florianópolis/SC e Porto Velho/RO.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.saadvogados.com/noticias.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Notícias Jurídicas | SA Advogados">
+    <meta property="og:image" content="https://www.saadvogados.com/assets/img/simbolo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css?version=13">
+    <link rel="stylesheet" href="assets/css/blog.css">
+</head>
+<body class="light-mode interior-page">
+    <div class="cursor-dot" data-cursor></div>
+    <div class="cursor-outline" data-cursor></div>
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <img src="assets/img/LOGOTIPO.png" alt="SA Advogados" class="logo-img logo-light">
+                <img src="assets/img/logopreot.png" alt="SA Advogados" class="logo-img logo-dark">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" style="color: var(--color-gray);">Escritório <i class="ri-arrow-down-s-line"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#especialidades" class="dropdown-item">Área de Atuação</a></li>
+                            <li><a href="index.html#sobre" class="dropdown-item">Sobre Nós</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" style="color: var(--color-gray);">Conteúdo <i class="ri-arrow-down-s-line"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="artigos.html" class="dropdown-item">Artigos</a></li>
+                            <li><a href="noticias.html" class="dropdown-item">Notícias</a></li>
+                            <li><a href="videos.html" class="dropdown-item">Vídeos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#contato" class="nav-link nav-btn" style="color: var(--color-gray); border-color: var(--color-gray);">Contato</a>
+                    </li>
+                </ul>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir Menu">
+                <i class="ri-menu-4-line" style="color: var(--color-gray);"></i>
+            </button>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="page-header">
+            <div class="container container-narrow text-center fade-up">
+                <span class="subtitle">ATUALIDADES</span>
+                <h1 class="title" style="font-size: clamp(2.5rem, 5vw, 4rem); margin: 1rem 0;">Nossas <span class="italic-serif">Notícias</span></h1>
+                <p class="description" style="color: #666; font-size: 1.1rem;">As principais atualizações jurídicas que impactam Santa Catarina e Rondônia.</p>
+            </div>
+        </section>
+        <section class="section blog-listing pt-0">
+            <div class="container">
+                <div class="blog-grid" id="noticias-grid">
+                    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:#999;">Carregando notícias...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+    (async function() {
+        const grid = document.getElementById('noticias-grid');
+        const placeholder = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop';
+        try {
+            const idx = await fetch('/content/noticias-index.json').then(r => r.json());
+            const items = await Promise.all(
+                idx.noticias.map(slug => fetch('/content/noticias/' + slug + '.json').then(r => r.json()).then(d => ({...d, slug})))
+            );
+            grid.innerHTML = items.map(function(n, i) {
+                return '<article class="blog-card fade-up" style="--delay:' + (i % 3) + '">' +
+                    '<a href="noticia-interna.html?slug=' + n.slug + '" class="blog-img-link">' +
+                    '<img src="' + (n.thumbnail || placeholder) + '" alt="' + n.title + '" class="blog-img" loading="lazy">' +
+                    '</a><div class="blog-content">' +
+                    '<span class="blog-tag">' + (n.source ? 'Fonte: ' + n.source : 'Notícia') + '</span>' +
+                    '<h3 class="blog-title"><a href="noticia-interna.html?slug=' + n.slug + '">' + n.title + '</a></h3>' +
+                    '<p class="blog-excerpt">' + n.excerpt + '</p>' +
+                    '<div class="blog-meta"><span class="blog-date">' + n.date + '</span></div>' +
+                    '</div></article>';
+            }).join('');
+        } catch(e) {
+            grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#999;">Não foi possível carregar as notícias.</p>';
+        }
+    })();
+    </script>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand fade-up">
+                <a href="index.html" class="brand-logo footer-logo">
+                    <img src="assets/img/LOGOTIPO.png" alt="SA Advogados" class="logo-img">
+                </a>
+                <p class="footer-desc">Excelência técnica e sensibilidade prática na advocacia de alto padrão.</p>
+            </div>
+            <div class="footer-locations fade-up" style="--delay: 1">
+                <h3 class="footer-title">Unidades</h3>
+                <address class="footer-address">
+                    <strong>Matriz — Florianópolis/SC</strong><br>
+                    Av. Pref. Osmar Cunha, 416, Sala 1108<br>Centro, CEP 88015-100
+                </address>
+                <address class="footer-address pt-2">
+                    <strong>Filial — Porto Velho/RO</strong><br>
+                    Av. Sete de Setembro, 1925<br>Nossa Senhora das Graças, CEP 76804-123
+                </address>
+            </div>
+            <div class="footer-contact fade-up" style="--delay: 2">
+                <h3 class="footer-title">Contato</h3>
+                <ul class="footer-links">
+                    <li><a href="tel:+5548991381200" class="footer-link">(48) 99138-1200</a></li>
+                    <li><a href="mailto:comercial@saadvogados.com" class="footer-link">comercial@saadvogados.com</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/sa.sadvogados" target="_blank" rel="noopener" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=5548991381200" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 SA Advogados. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

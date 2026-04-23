@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Vídeos Jurídicos | SA Advogados — Florianópolis e Porto Velho</title>
+    <meta name="description" content="Assista aos vídeos jurídicos da SA Advogados: análises, dicas e atualizações legais para empresas e profissionais de Florianópolis/SC e Porto Velho/RO.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.saadvogados.com/videos.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vídeos Jurídicos | SA Advogados">
+    <meta property="og:image" content="https://www.saadvogados.com/assets/img/simbolo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css?version=13">
+    <link rel="stylesheet" href="assets/css/blog.css">
+    <style>
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .video-card {
+            background: var(--color-white, #fff);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .video-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+        .video-thumb {
+            position: relative;
+            padding-bottom: 56.25%;
+            background: #000;
+            overflow: hidden;
+        }
+        .video-thumb img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-play-btn {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.3);
+            transition: background 0.3s;
+        }
+        .video-play-btn:hover { background: rgba(0,0,0,0.5); }
+        .video-play-btn i { font-size: 3rem; color: #fff; }
+        .video-info { padding: 1.25rem; }
+        .video-info .blog-tag { display: inline-block; margin-bottom: 0.5rem; }
+        .video-title { font-size: 1rem; font-weight: 600; margin: 0.25rem 0 0.5rem; line-height: 1.4; }
+        .video-title a { color: inherit; text-decoration: none; }
+        .video-title a:hover { color: var(--color-gold, #b8953f); }
+        .video-desc { font-size: 0.875rem; color: #666; margin-bottom: 0.75rem; }
+        .video-meta { font-size: 0.8rem; color: #999; display: flex; justify-content: space-between; }
+        .empty-state {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 5rem 2rem;
+            color: #999;
+        }
+        .empty-state i { font-size: 4rem; display: block; margin-bottom: 1rem; opacity: 0.3; }
+        .empty-state p { font-size: 1.1rem; }
+    </style>
+</head>
+<body class="light-mode interior-page">
+    <div class="cursor-dot" data-cursor></div>
+    <div class="cursor-outline" data-cursor></div>
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <img src="assets/img/LOGOTIPO.png" alt="SA Advogados" class="logo-img logo-light">
+                <img src="assets/img/logopreot.png" alt="SA Advogados" class="logo-img logo-dark">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" style="color: var(--color-gray);">Escritório <i class="ri-arrow-down-s-line"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#especialidades" class="dropdown-item">Área de Atuação</a></li>
+                            <li><a href="index.html#sobre" class="dropdown-item">Sobre Nós</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" style="color: var(--color-gray);">Conteúdo <i class="ri-arrow-down-s-line"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="artigos.html" class="dropdown-item">Artigos</a></li>
+                            <li><a href="noticias.html" class="dropdown-item">Notícias</a></li>
+                            <li><a href="videos.html" class="dropdown-item">Vídeos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#contato" class="nav-link nav-btn" style="color: var(--color-gray); border-color: var(--color-gray);">Contato</a>
+                    </li>
+                </ul>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir Menu">
+                <i class="ri-menu-4-line" style="color: var(--color-gray);"></i>
+            </button>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="page-header">
+            <div class="container container-narrow text-center fade-up">
+                <span class="subtitle">CONTEÚDO EM VÍDEO</span>
+                <h1 class="title" style="font-size: clamp(2.5rem, 5vw, 4rem); margin: 1rem 0;">Nossos <span class="italic-serif">Vídeos</span></h1>
+                <p class="description" style="color: #666; font-size: 1.1rem;">Análises jurídicas em formato vídeo para clientes e parceiros.</p>
+            </div>
+        </section>
+        <section class="section pt-0">
+            <div class="container">
+                <div class="video-grid" id="videos-grid">
+                    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:#999;">Carregando vídeos...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+    (async function() {
+        const grid = document.getElementById('videos-grid');
+        try {
+            const idx = await fetch('/content/videos-index.json').then(r => r.json());
+            if (!idx.videos || idx.videos.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><i class="ri-video-line"></i><p>Em breve, novos vídeos serão publicados aqui.<br>Acompanhe nossas redes sociais para não perder nenhum conteúdo.</p></div>';
+                return;
+            }
+            const items = await Promise.all(
+                idx.videos.map(slug => fetch('/content/videos/' + slug + '.json').then(r => r.json()).then(d => ({...d, slug})))
+            );
+            grid.innerHTML = items.map(function(v, i) {
+                var thumb = v.thumbnail || ('https://img.youtube.com/vi/' + v.youtube_id + '/maxresdefault.jpg');
+                var url = 'https://www.youtube.com/watch?v=' + v.youtube_id;
+                return '<article class="video-card fade-up" style="--delay:' + (i % 3) + '">' +
+                    '<a href="' + url + '" target="_blank" rel="noopener" class="video-thumb">' +
+                    '<img src="' + thumb + '" alt="' + v.title + '" loading="lazy">' +
+                    '<div class="video-play-btn"><i class="ri-play-fill"></i></div>' +
+                    '</a><div class="video-info">' +
+                    '<span class="blog-tag">' + (v.author || 'SA Advogados') + '</span>' +
+                    '<h3 class="video-title"><a href="' + url + '" target="_blank" rel="noopener">' + v.title + '</a></h3>' +
+                    '<p class="video-desc">' + v.excerpt + '</p>' +
+                    '<div class="video-meta"><span>' + v.date + '</span></div>' +
+                    '</div></article>';
+            }).join('');
+        } catch(e) {
+            grid.innerHTML = '<div class="empty-state"><i class="ri-video-line"></i><p>Vídeos em breve.</p></div>';
+        }
+    })();
+    </script>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand fade-up">
+                <a href="index.html" class="brand-logo footer-logo">
+                    <img src="assets/img/LOGOTIPO.png" alt="SA Advogados" class="logo-img">
+                </a>
+                <p class="footer-desc">Excelência técnica e sensibilidade prática na advocacia de alto padrão.</p>
+            </div>
+            <div class="footer-locations fade-up" style="--delay: 1">
+                <h3 class="footer-title">Unidades</h3>
+                <address class="footer-address">
+                    <strong>Matriz — Florianópolis/SC</strong><br>
+                    Av. Pref. Osmar Cunha, 416, Sala 1108<br>Centro, CEP 88015-100
+                </address>
+                <address class="footer-address pt-2">
+                    <strong>Filial — Porto Velho/RO</strong><br>
+                    Av. Sete de Setembro, 1925<br>Nossa Senhora das Graças, CEP 76804-123
+                </address>
+            </div>
+            <div class="footer-contact fade-up" style="--delay: 2">
+                <h3 class="footer-title">Contato</h3>
+                <ul class="footer-links">
+                    <li><a href="tel:+5548991381200" class="footer-link">(48) 99138-1200</a></li>
+                    <li><a href="mailto:comercial@saadvogados.com" class="footer-link">comercial@saadvogados.com</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/sa.sadvogados" target="_blank" rel="noopener" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=5548991381200" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 SA Advogados. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -119,74 +119,42 @@
 
         <section class="section blog-listing pt-0">
             <div class="container">
-                <div class="blog-grid">
-                    <!-- Post 1 -->
-                    <article class="blog-card fade-up">
-                        <a href="artigo-interno.html" class="blog-img-link">
-                            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop" alt="STF e impostos" class="blog-img">
-                        </a>
-                        <div class="blog-content">
-                            <span class="blog-tag">Direito Tributário</span>
-                            <h3 class="blog-title"><a href="artigo-interno.html">A recente decisão do STF sobre a base de cálculo do ICMS</a></h3>
-                            <p class="blog-excerpt">Uma análise sobre o impacto financeiro para as empresas varejistas após o novo entendimento da Suprema Corte e as estratégias de mitigação.</p>
-                            <div class="blog-meta">
-                                <span class="blog-author">Por Luciana Azevedo</span>
-                                <span class="blog-date">15 de Março, 2026</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Post 2 -->
-                    <article class="blog-card fade-up" style="--delay: 1">
-                        <a href="artigo-interno.html" class="blog-img-link">
-                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop" alt="Reunião de negócios" class="blog-img">
-                        </a>
-                        <div class="blog-content">
-                            <span class="blog-tag">Empresarial</span>
-                            <h3 class="blog-title"><a href="artigo-interno.html">Compliance reativo vs. preventivo nas S.A.</a></h3>
-                            <p class="blog-excerpt">Por que esperar a notificação dos órgãos reguladores custa até dez vezes mais do que a implementação de um programa de integridade sólido.</p>
-                            <div class="blog-meta">
-                                <span class="blog-author">Por Artur Souza</span>
-                                <span class="blog-date">02 de Fevereiro, 2026</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Post 3 -->
-                    <article class="blog-card fade-up" style="--delay: 2">
-                        <a href="artigo-interno.html" class="blog-img-link">
-                            <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1200&auto=format&fit=crop" alt="Instrumentos médicos" class="blog-img">
-                        </a>
-                        <div class="blog-content">
-                            <span class="blog-tag">Direito Médico</span>
-                            <h3 class="blog-title"><a href="artigo-interno.html">Responsabilidade civil de médicos em teleconsultas</a></h3>
-                            <p class="blog-excerpt">Os limites jurídicos do diagnóstico online e a necessidade de adequação contratual das plataformas digitais de saúde.</p>
-                            <div class="blog-meta">
-                                <span class="blog-author">Por Luciana Azevedo</span>
-                                <span class="blog-date">20 de Janeiro, 2026</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- Post 4 -->
-                    <article class="blog-card fade-up">
-                        <a href="artigo-interno.html" class="blog-img-link">
-                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop" alt="Contrato governamental" class="blog-img">
-                        </a>
-                        <div class="blog-content">
-                            <span class="blog-tag">Direito Público</span>
-                            <h3 class="blog-title"><a href="artigo-interno.html">A Nova Lei de Licitações e os impactos locais</a></h3>
-                            <p class="blog-excerpt">O que muda para as prefeituras e para os fornecedores de tecnologia nos próximos certames estaduais e municipais.</p>
-                            <div class="blog-meta">
-                                <span class="blog-author">Por Artur Souza</span>
-                                <span class="blog-date">10 de Janeiro, 2026</span>
-                            </div>
-                        </div>
-                    </article>
+                <div class="blog-grid" id="artigos-grid">
+                    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:#999;">Carregando artigos...</div>
                 </div>
             </div>
         </section>
     </main>
+
+    <script>
+    (async function() {
+        const grid = document.getElementById('artigos-grid');
+        const placeholder = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop';
+        try {
+            const idx = await fetch('/content/artigos-index.json').then(r => r.json());
+            const articles = await Promise.all(
+                idx.artigos.map(slug => fetch(`/content/artigos/${slug}.json`).then(r => r.json()).then(d => ({...d, slug})))
+            );
+            grid.innerHTML = articles.map((a, i) => `
+                <article class="blog-card fade-up" style="--delay:${i % 3}">
+                    <a href="artigo-interno.html?slug=${a.slug}" class="blog-img-link">
+                        <img src="${a.thumbnail || placeholder}" alt="${a.title}" class="blog-img" loading="lazy">
+                    </a>
+                    <div class="blog-content">
+                        <span class="blog-tag">${a.category || ''}</span>
+                        <h3 class="blog-title"><a href="artigo-interno.html?slug=${a.slug}">${a.title}</a></h3>
+                        <p class="blog-excerpt">${a.excerpt}</p>
+                        <div class="blog-meta">
+                            <span class="blog-author">Por ${a.author}</span>
+                            <span class="blog-date">${a.date}</span>
+                        </div>
+                    </div>
+                </article>`).join('');
+        } catch(e) {
+            grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#999;">Não foi possível carregar os artigos.</p>';
+        }
+    })();
+    </script>
 
     <footer class="footer">
         <div class="container footer-container">
