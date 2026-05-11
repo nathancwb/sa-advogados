@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/artigo", "destination": "/artigo-interno.html" },
-    { "source": "/noticia", "destination": "/noticia-interna.html" }
+    { "source": "/artigos/(.*)", "destination": "/api/artigo?slug=$1" },
+    { "source": "/noticias/(.*)", "destination": "/api/noticia?slug=$1" }
   ]
 }

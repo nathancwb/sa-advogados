@@ -10,7 +10,7 @@
     <title>SA Advogados | Escritório de Advocacia</title>
     <meta name="description" content="Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.">    <meta name="keywords" content="advogado florianópolis, advogado porto velho, direito tributário, direito médico, direito público">    <meta name="author" content="SA Advogados">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://www.saadvogados.com/artigos.html">
+    <link rel="canonical" href="https://www.saadvogados.com/artigos">
 
     <!-- ═══════════ GEO / LOCALIZAÇÃO ═══════════ -->
     <meta name="geo.region" content="BR-SC">
@@ -21,7 +21,7 @@
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="SA Advogados">
     <meta property="og:title" content="SA Advogados | Escritório de Advocacia">
-    <meta property="og:description" content="Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.">    <meta property="og:url" content="https://www.saadvogados.com/artigos.html">
+    <meta property="og:description" content="Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.">    <meta property="og:url" content="https://www.saadvogados.com/artigos">
     <meta property="og:image" content="https://www.saadvogados.com/assets/img/simbolo.png">
     <!-- ═══════════ TWITTER CARD ═══════════ -->
     <meta name="twitter:card" content="summary_large_image">
@@ -34,8 +34,8 @@
       "@graph": [
         {
           "@type": "CollectionPage",
-          "@id": "https://www.saadvogados.com/artigos.html",
-          "url": "https://www.saadvogados.com/artigos.html",
+          "@id": "https://www.saadvogados.com/artigos",
+          "url": "https://www.saadvogados.com/artigos",
           "name": "Artigos Jurídicos — SA Advogados",
           "description": "Análises profundas e atualizações sobre o cenário jurídico brasileiro produzidas pelos especialistas da SA Advogados.",
           "inLanguage": "pt-BR",
@@ -46,7 +46,7 @@
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.saadvogados.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Artigos", "item": "https://www.saadvogados.com/artigos.html" }
+            { "@type": "ListItem", "position": 2, "name": "Artigos", "item": "https://www.saadvogados.com/artigos" }
           ]
         }
       ]
@@ -124,23 +124,19 @@
     (async function() {
         const grid = document.getElementById('artigos-grid');
         const placeholder = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop';
-    try {
-            const idx = await fetch('/content/artigos-index.json').then(r => r.json());
-            const results = await Promise.allSettled(
-                idx.artigos.map(slug => fetch('/content/artigos/' + slug + '.json').then(r => r.json()).then(d => ({...d, slug})))
-            );
-            const articles = results.filter(r => r.status === 'fulfilled').map(r => r.value);
-            if (articles.length === 0) {
+        try {
+            const articles = await fetch('/api/list-artigos').then(r => r.json());
+            if (!articles || articles.length === 0) {
                 grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#999;">Nenhum artigo encontrado.</p>';
                 return;
             }
             grid.innerHTML = articles.map(function(a, i) {
                 return '<article class="blog-card fade-up visible" style="--delay:' + (i % 3) + '">' +
-                    '<a href="/artigo?slug=' + a.slug + '" class="blog-img-link">' +
+                    '<a href="/artigos/' + a.slug + '" class="blog-img-link">' +
                     '<img src="' + (a.thumbnail || placeholder) + '" alt="' + a.title + '" class="blog-img" loading="lazy">' +
                     '</a><div class="blog-content">' +
                     '<span class="blog-tag">' + (a.category || '') + '</span>' +
-                    '<h3 class="blog-title"><a href="/artigo?slug=' + a.slug + '">' + a.title + '</a></h3>' +
+                    '<h3 class="blog-title"><a href="/artigos/' + a.slug + '">' + a.title + '</a></h3>' +
                     '<p class="blog-excerpt">' + a.excerpt + '</p>' +
                     '<div class="blog-meta">' +
                     '<span class="blog-author">Por ' + a.author + '</span>' +

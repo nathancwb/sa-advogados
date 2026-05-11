@@ -7,7 +7,7 @@
     <title>Vídeos Jurídicos | SA Advogados — Florianópolis e Porto Velho</title>
     <meta name="description" content="Assista aos vídeos jurídicos da SA Advogados: análises, dicas e atualizações legais para empresas e profissionais de Florianópolis/SC e Porto Velho/RO.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.saadvogados.com/videos.html">
+    <link rel="canonical" href="https://www.saadvogados.com/videos">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Vídeos Jurídicos | SA Advogados">
     <meta property="og:image" content="https://www.saadvogados.com/assets/img/simbolo.png">
@@ -129,14 +129,11 @@
     (async function() {
         const grid = document.getElementById('videos-grid');
         try {
-            const idx = await fetch('/content/videos-index.json').then(r => r.json());
-            if (!idx.videos || idx.videos.length === 0) {
+            const items = await fetch('/api/list-videos').then(r => r.json());
+            if (!items || items.length === 0) {
                 grid.innerHTML = '<div class="empty-state"><i class="ri-video-line"></i><p>Em breve, novos vídeos serão publicados aqui.<br>Acompanhe nossas redes sociais para não perder nenhum conteúdo.</p></div>';
                 return;
             }
-            const items = await Promise.all(
-                idx.videos.map(slug => fetch('/content/videos/' + slug + '.json').then(r => r.json()).then(d => ({...d, slug})))
-            );
             grid.innerHTML = items.map(function(v, i) {
                 var thumb = v.thumbnail || ('https://img.youtube.com/vi/' + v.youtube_id + '/maxresdefault.jpg');
                 var url = 'https://www.youtube.com/watch?v=' + v.youtube_id;
