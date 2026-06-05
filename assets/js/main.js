@@ -163,4 +163,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- 7. CONTACT FORM SUBMISSION ---
+    const contactForm = document.getElementById('contact-form');
+    const formFeedback = document.getElementById('form-feedback');
+
+    if (contactForm && formFeedback) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show sending state
+            const submitBtn = contactForm.querySelector('.form-submit');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Enviando... <i class="ri-loader-4-line ri-spin"></i>';
+            submitBtn.disabled = true;
+            
+            // Mock API request (simulate network request)
+            setTimeout(() => {
+                // Success message
+                formFeedback.innerHTML = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+                formFeedback.className = 'form-feedback success';
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Clear message after 5 seconds
+                setTimeout(() => {
+                    formFeedback.innerHTML = '';
+                    formFeedback.className = 'form-feedback';
+                }, 5000);
+            }, 1500);
+        });
+    }
+
 });
