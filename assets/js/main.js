@@ -129,39 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 6. CUSTOM MOUSE CURSOR (Optional subtle UI element) ---
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
 
-    if(cursorDot && cursorOutline && window.innerWidth > 992) {
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-
-            // Dot follows exactly
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-
-            // Outline follows with slight delay using animate
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        });
-
-        // Hover effect for links
-        const interactibles = document.querySelectorAll('a, button, summary');
-        interactibles.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursorOutline.style.backgroundColor = 'rgba(60, 60, 61, 0.1)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursorOutline.style.backgroundColor = 'transparent';
-            });
-        });
-    }
 
     // --- 7. CONTACT FORM SUBMISSION ---
     const contactForm = document.getElementById('contact-form');

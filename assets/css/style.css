@@ -847,24 +847,7 @@ h1, h2, h3, h4, .title, .section-title {
     transform: translateY(0);
 }
 
-/* CUSTOM CURSOR (Optional subtle flair) */
-.cursor-dot, .cursor-outline {
-    position: fixed;
-    top: 0; left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 9999;
-    pointer-events: none;
-}
-.cursor-dot {
-    width: 6px; height: 6px;
-    background-color: var(--color-gray);
-}
-.cursor-outline {
-    width: 40px; height: 40px;
-    border: 1px solid rgba(60, 60, 61, 0.4);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
+
 
 /* MEDIA QUERIES (MOBILE) */
 @media (max-width: 992px) {
