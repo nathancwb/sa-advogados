@@ -98,24 +98,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const elementsToReveal = document.querySelectorAll('.fade-up');
     elementsToReveal.forEach(el => observer.observe(el));
 
-    // Stagger text on Hero section
+    // Stagger text on Hero section (só existe na home — protege contra null nas páginas internas)
     setTimeout(() => {
-        document.querySelector('.subtitle').style.opacity = '1';
-        document.querySelector('.title').style.opacity = '1';
-        document.querySelector('.description').style.opacity = '1';
+        document.querySelectorAll('.hero .subtitle, .hero .title, .hero .description').forEach(el => {
+            el.style.opacity = '1';
+        });
     }, 300);
 
-    // --- 4. PARALLAX EFFECT ON IMAGES ---
+    // --- 4. PARALLAX EFFECT ON IMAGES (throttled via requestAnimationFrame) ---
     const paralaxImages = document.querySelectorAll('.paralax-img');
-    
-    window.addEventListener('scroll', () => {
-        let scrollY = window.scrollY;
-        
-        paralaxImages.forEach(img => {
-            let speed = 0.3;
-            img.style.transform = `translateY(${scrollY * speed}px)`;
-        });
-    });
+
+    if (paralaxImages.length) {
+        let parallaxTicking = false;
+        window.addEventListener('scroll', () => {
+            if (parallaxTicking) return;
+            parallaxTicking = true;
+            window.requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                paralaxImages.forEach(img => {
+                    img.style.transform = `translateY(${scrollY * 0.3}px)`;
+                });
+                parallaxTicking = false;
+            });
+        }, { passive: true });
+    }
 
     // --- 5. EXPERTISE ACCORDION (Exclusive Open Option) ---
     const detailsElements = document.querySelectorAll('.expertise-item');
@@ -136,34 +142,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const formFeedback = document.getElementById('form-feedback');
 
     if (contactForm && formFeedback) {
+        // Número de destino do escritório (mesmo do CTA do WhatsApp)
+        const WHATSAPP_NUMBER = '5548991381200';
+
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Show sending state
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
             const submitBtn = contactForm.querySelector('.form-submit');
             const originalBtnText = submitBtn.innerHTML;
-            submitBtn.innerHTML = 'Enviando... <i class="ri-loader-4-line ri-spin"></i>';
+            submitBtn.innerHTML = 'Abrindo WhatsApp... <i class="ri-loader-4-line ri-spin"></i>';
             submitBtn.disabled = true;
-            
-            // Mock API request (simulate network request)
+
+            // Monta a mensagem com os dados do formulário
+            const data = new FormData(contactForm);
+            const linhas = [
+                '*Novo contato pelo site — SA Advogados*',
+                '',
+                `*Nome:* ${data.get('name') || ''}`,
+                `*E-mail:* ${data.get('email') || ''}`,
+                `*Telefone:* ${data.get('phone') || ''}`,
+                `*Área de interesse:* ${data.get('area') || ''}`,
+                '',
+                `*Mensagem:*`,
+                `${data.get('message') || ''}`
+            ];
+            const texto = encodeURIComponent(linhas.join('\n'));
+            const waUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${texto}`;
+
+            // Abre o WhatsApp (nova aba) para o lead chegar de fato ao escritório
+            window.open(waUrl, '_blank', 'noopener');
+
+            formFeedback.innerHTML = 'Tudo certo! Abrimos o WhatsApp com a sua mensagem pronta — é só tocar em enviar. Se não abrir, fale conosco pelo (48) 99138-1200.';
+            formFeedback.className = 'form-feedback success';
+
+            contactForm.reset();
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+
             setTimeout(() => {
-                // Success message
-                formFeedback.innerHTML = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
-                formFeedback.className = 'form-feedback success';
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Reset button
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-                
-                // Clear message after 5 seconds
-                setTimeout(() => {
-                    formFeedback.innerHTML = '';
-                    formFeedback.className = 'form-feedback';
-                }, 5000);
-            }, 1500);
+                formFeedback.innerHTML = '';
+                formFeedback.className = 'form-feedback';
+            }, 8000);
         });
     }
 
