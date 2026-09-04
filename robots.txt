@@ -1,22 +1,41 @@
-# Allow all search engines
+# Allow all search engines and AI agents
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-# Explicitly allow Facebook/WhatsApp crawler
+# AI Crawlers & LLM Agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Social & Messaging Bots
 User-agent: facebookexternalhit
 Allow: /
 
-# Explicitly allow WhatsApp link preview bot
 User-agent: WhatsApp
 Allow: /
 
-# Explicitly allow Twitterbot
 User-agent: Twitterbot
 Allow: /
 
-# Explicitly allow LinkedInBot
 User-agent: LinkedInBot
 Allow: /
 

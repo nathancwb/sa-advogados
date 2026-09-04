@@ -1,8 +1,49 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Vary",
+          "value": "Accept, Accept-Encoding"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "Vary",
+          "value": "Accept, Accept-Encoding"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Vary",
+          "value": "Accept, Accept-Encoding"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/artigos/(.*)", "destination": "/api/artigo?slug=$1" },
-    { "source": "/noticias/(.*)", "destination": "/api/noticia?slug=$1" }
+    { "source": "/noticias/(.*)", "destination": "/api/noticia?slug=$1" },
+    { "source": "/about", "destination": "/sobre.html" },
+    { "source": "/contact", "destination": "/contato.html" },
+    { "source": "/privacy", "destination": "/privacidade.html" },
+    { "source": "/terms", "destination": "/termos.html" }
   ]
 }

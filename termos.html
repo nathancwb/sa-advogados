@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- ═══════════ SEO PRIMÁRIO ═══════════ -->
     <title>SA Advogados | Escritório de Advocacia</title>
     <meta name="description" content="Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.">
     <meta name="keywords" content="advogado florianópolis, advogado porto velho, direito tributário, direito médico, direito público">
     <meta name="author" content="SA Advogados">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://www.saadvogados.com/noticias">
-    <link rel="alternate" type="text/markdown" href="https://www.saadvogados.com/noticias.md">
-
-    <!-- ═══════════ GEO ═══════════ -->
-    <meta name="geo.region" content="BR-SC">
-    <meta name="geo.placename" content="Florianópolis, Santa Catarina">
+    <link rel="canonical" href="https://www.saadvogados.com/termos">
+    <link rel="alternate" type="text/markdown" href="https://www.saadvogados.com/termos.md">
 
     <!-- ═══════════ OPEN GRAPH ═══════════ -->
     <meta property="og:type" content="website">
@@ -22,12 +21,10 @@
     <meta property="og:site_name" content="SA Advogados">
     <meta property="og:title" content="SA Advogados | Escritório de Advocacia">
     <meta property="og:description" content="Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.">
-    <meta property="og:url" content="https://www.saadvogados.com/noticias">
+    <meta property="og:url" content="https://www.saadvogados.com/termos">
     <meta property="og:image" content="https://www.saadvogados.com/assets/img/simbolo.png">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
 
-    <!-- ═══════════ TWITTER ═══════════ -->
+    <!-- ═══════════ TWITTER CARD ═══════════ -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SA Advogados | Escritório de Advocacia">
     <meta name="twitter:description" content="Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.">
@@ -39,14 +36,13 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "CollectionPage",
-          "@id": "https://www.saadvogados.com/noticias#collection",
-          "url": "https://www.saadvogados.com/noticias",
-          "name": "Notícias Jurídicas — SA Advogados",
-          "description": "Notícias jurídicas que impactam empresas e profissionais em Florianópolis/SC e Porto Velho/RO.",
+          "@type": "WebPage",
+          "@id": "https://www.saadvogados.com/termos#webpage",
+          "url": "https://www.saadvogados.com/termos",
+          "name": "Termos de Uso & Aviso Legal — SA Advogados",
+          "description": "Condições gerais de navegação e responsabilidade técnica da SA Advogados.",
           "inLanguage": "pt-BR",
-          "isPartOf": { "@id": "https://www.saadvogados.com/#website" },
-          "about": { "@id": "https://www.saadvogados.com/#organization" }
+          "isPartOf": { "@id": "https://www.saadvogados.com/#website" }
         },
         {
           "@type": ["Organization", "LegalService", "LocalBusiness"],
@@ -55,6 +51,7 @@
           "alternateName": "SA Advogados — Advocacia e Consultoria Jurídica",
           "url": "https://www.saadvogados.com/",
           "logo": "https://www.saadvogados.com/assets/img/LOGOTIPO.png",
+          "image": "https://www.saadvogados.com/assets/images/CAPA.jpg",
           "email": "comercial@saadvogados.com",
           "telephone": "+55-48-99138-1200",
           "contactPoint": [
@@ -100,120 +97,119 @@
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.saadvogados.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Notícias", "item": "https://www.saadvogados.com/noticias" }
+            { "@type": "ListItem", "position": 2, "name": "Termos de Uso", "item": "https://www.saadvogados.com/termos" }
           ]
         }
       ]
     }
     </script>
 
+    <!-- ═══════════ FONTS & CSS ═══════════ -->
     <link rel="stylesheet" href="/assets/fonts/fonts.css">
     <link rel="stylesheet" href="/assets/fonts/remixicon.css">
-    <link rel="stylesheet" href="assets/css/style.css?version=13">
-    <link rel="stylesheet" href="assets/css/blog.css">
+    <link rel="stylesheet" href="assets/css/style.css?version=14">
 </head>
-<body class="light-mode interior-page">
+<body class="light-mode">
+    
     <header class="header" id="header">
         <nav class="nav-container">
             <a href="/" class="brand-logo">
                 <img src="assets/img/LOGOTIPO.png" alt="SA Advogados" class="logo-img logo-light">
                 <img src="assets/img/logopreot.png" alt="SA Advogados" class="logo-img logo-dark">
             </a>
+            
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" style="color: var(--color-gray);">Escritório <i class="ri-arrow-down-s-line"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/#especialidades" class="dropdown-item">Área de Atuação</a></li>
-                            <li><a href="/#sobre" class="dropdown-item">Sobre Nós</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" style="color: var(--color-gray);">Conteúdo <i class="ri-arrow-down-s-line"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/artigos" class="dropdown-item">Artigos</a></li>
-                            <li><a href="/noticias" class="dropdown-item">Notícias</a></li>
-                            <li><a href="/videos" class="dropdown-item">Vídeos</a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a href="/" class="nav-link">Início</a></li>
+                    <li class="nav-item"><a href="/sobre" class="nav-link">Sobre Nós</a></li>
+                    <li class="nav-item"><a href="/artigos" class="nav-link">Artigos</a></li>
+                    <li class="nav-item"><a href="/noticias" class="nav-link">Notícias</a></li>
                     <li class="nav-item">
-                        <a href="/#contato" class="nav-link nav-btn" style="color: var(--color-gray); border-color: var(--color-gray);">Contato</a>
+                        <a href="/contato" class="nav-link nav-btn">Contato</a>
                     </li>
                 </ul>
             </div>
+            
             <button class="nav-toggle" id="nav-toggle" aria-label="Abrir Menu">
-                <i class="ri-menu-4-line" style="color: var(--color-gray);"></i>
+                <i class="ri-menu-4-line"></i>
             </button>
         </nav>
     </header>
-    <main class="main">
-        <section class="page-header">
-            <div class="container container-narrow text-center fade-up">
-                <span class="subtitle">ATUALIDADES</span>
-                <h1 class="title" style="font-size: clamp(2.5rem, 5vw, 4rem); margin: 1rem 0;">Nossas <span class="italic-serif">Notícias</span></h1>
-                <p class="description" style="color: #666; font-size: 1.1rem;">As principais atualizações jurídicas que impactam Santa Catarina e Rondônia.</p>
-            </div>
-        </section>
-        <section class="section blog-listing pt-0">
-            <div class="container">
-                <div class="blog-grid" id="noticias-grid">
-                    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:#999;">Carregando notícias...</div>
+
+    <main class="main" style="padding-top: 100px;">
+        <section class="section">
+            <div class="container container-narrow">
+                <span class="subtitle">Aviso Legal & Ética</span>
+                <h1 class="title" style="font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1.5rem;">
+                    Termos de Uso e <span class="italic-serif">Condições Gerais.</span>
+                </h1>
+                <p style="font-size: 1rem; color: #888; margin-bottom: 2rem;">
+                    Última atualização: Março de 2026 | Em conformidade com o Código de Ética e Disciplina da OAB e Provimento CFOAB nº 205/2021.
+                </p>
+
+                <div class="editorial-content" style="font-size: 1.05rem; line-height: 1.85; color: #444;">
+                    
+                    <h2 style="font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--color-gray);">1. Natureza Informativa do Conteúdo</h2>
+                    <p>
+                        Todo o conteúdo disponibilizado neste site — incluindo artigos jurídicos, análises jurisprudenciais, notícias e publicações — possui caráter estritamente educacional e informativo, em consonância com as normas éticas da Ordem dos Advogados do Brasil (OAB).
+                    </p>
+                    <p>
+                        Nenhuma informação contida nesta plataforma deve ser interpretada como consulta jurídica formal, parecer ou garantia de resultado em casos judiciais específicos. A formalização da relação advogado-cliente ocorre exclusivamente mediante contratação expressa com outorga de procuração.
+                    </p>
+
+                    <h2 style="font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--color-gray);">2. Propriedade Intelectual e Direitos Autorais</h2>
+                    <p>
+                        Os textos, marcas, logotipos, diagramações, códigos e imagens veiculados neste site são de propriedade exclusiva da <strong>SA Advogados</strong> ou foram licenciados legalmente. É vedada a reprodução total ou parcial para fins comerciais sem autorização prévia por escrito. Citações e compartilhamentos informativos são permitidos desde que acompanhados da menção explícita à fonte e link para o original.
+                    </p>
+
+                    <h2 style="font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--color-gray);">3. Links para Serviços e Plataformas Externas</h2>
+                    <p>
+                        Nosso portal pode conter links para sites de tribunais (STF, STJ, TJSC, TJRO), conselhos de classe (OAB, CFM/CRM) ou órgãos fazendários. A SA Advogados não se responsabiliza pelo conteúdo, políticas de privacidade ou disponibilidade de serviços mantidos por terceiros.
+                    </p>
+
+                    <h2 style="font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--color-gray);">4. Confidencialidade e Comunicações</h2>
+                    <p>
+                        As mensagens encaminhadas por meio do formulário de contato ou canais oficiais da SA Advogados são tratadas com rigoroso dever de sigilo profissional. Não obstante, recomendamos que documentos e detalhes altamente sensíveis sejam compartilhados após o alinhamento preliminar com nossos advogados através de canais criptografados.
+                    </p>
+
+                    <h2 style="font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--color-gray);">5. Legislação Aplicável e Foro</h2>
+                    <p>
+                        Estes Termos de Uso são regidos pelas leis da República Federativa do Brasil. Para dirimir eventuais controvérsias oriundas da utilização desta plataforma digital, fica eleito o Foro da Comarca da Capital de Santa Catarina (Florianópolis), com renúncia a qualquer outro, por mais privilegiado que seja.
+                    </p>
+
                 </div>
             </div>
         </section>
     </main>
 
-    <script>
-    (async function() {
-        const grid = document.getElementById('noticias-grid');
-        const placeholder = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop';
-        try {
-            const items = await fetch('/api/list-noticias').then(r => r.json());
-            if (!items || items.length === 0) {
-                grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#999;">Nenhuma notícia encontrada.</p>';
-                return;
-            }
-            grid.innerHTML = items.map(function(n, i) {
-                return '<article class="blog-card fade-up visible" style="--delay:' + (i % 3) + '">' +
-                    '<a href="/noticias/' + n.slug + '" class="blog-img-link">' +
-                    '<img src="' + (n.thumbnail || placeholder) + '" alt="' + n.title + '" class="blog-img" loading="lazy">' +
-                    '</a><div class="blog-content">' +
-                    '<span class="blog-tag">' + (n.source ? 'Fonte: ' + n.source : 'Notícia') + '</span>' +
-                    '<h3 class="blog-title"><a href="/noticias/' + n.slug + '">' + n.title + '</a></h3>' +
-                    '<p class="blog-excerpt">' + n.excerpt + '</p>' +
-                    '<div class="blog-meta"><span class="blog-date">' + n.date + '</span></div>' +
-                    '</div></article>';
-            }).join('');
-        } catch(e) {
-            grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:2rem;color:#666;">Não foi possível carregar as notícias. Tente recarregar a página.</p>';
-        }
-    })();
-    </script>
-
     <footer class="footer">
         <div class="container footer-container">
-            <div class="footer-brand fade-up">
+            <div class="footer-brand">
                 <a href="/" class="brand-logo footer-logo">
                     <img src="assets/img/LOGOTIPO.png" alt="SA Advogados" class="logo-img">
                 </a>
                 <p class="footer-desc">Excelência técnica e sensibilidade prática na advocacia de alto padrão.</p>
             </div>
-            <div class="footer-locations fade-up" style="--delay: 1">
+
+            <div class="footer-locations">
                 <h3 class="footer-title">Unidades</h3>
                 <address class="footer-address">
                     <a href="https://maps.google.com/?q=Av.+Pref.+Osmar+Cunha,+416,+Sala+1108+-+Centro,+Florianopolis+-+SC,+88015-100" target="_blank" rel="noopener" class="footer-map-link">
-                        <strong>Matriz — Florianópolis/SC</strong><br>
-                        Av. Pref. Osmar Cunha, 416, Sala 1108<br>Centro, CEP 88015-100
+                        <strong>Matriz - Florianópolis/SC</strong><br>
+                        Av. Pref. Osmar Cunha, 416, Sala 1108<br>
+                        Centro, CEP 88015-100
                     </a>
                 </address>
                 <address class="footer-address pt-2">
                     <a href="https://maps.google.com/?q=Av.+Sete+de+Setembro,+1925+-+Nossa+Senhora+das+Gracas,+Porto+Velho+-+RO,+76804-123" target="_blank" rel="noopener" class="footer-map-link">
-                        <strong>Filial — Porto Velho/RO</strong><br>
-                        Av. Sete de Setembro, 1925<br>Nossa Senhora das Graças, CEP 76804-123
+                        <strong>Filial - Porto Velho/RO</strong><br>
+                        Av. Sete de Setembro, 1925<br>
+                        Nossa Senhora das Graças, CEP 76804-123
                     </a>
                 </address>
             </div>
-            <div class="footer-contact fade-up" style="--delay: 2">
+
+            <div class="footer-contact">
                 <h3 class="footer-title">Contato</h3>
                 <ul class="footer-links">
                     <li><a href="tel:+5548991381200" class="footer-link">(48) 99138-1200</a></li>
@@ -226,7 +222,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+            <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:1rem;">
                 <p>&copy; 2026 SA Advogados. Todos os direitos reservados. <span>Atendimento: Seg à Sex - 08:00h às 18:00h.</span></p>
                 <div class="footer-legal-links" style="display:flex;gap:1.5rem;font-size:0.85rem;">
                     <a href="/sobre" style="color:#888;">Sobre</a>
@@ -237,6 +233,7 @@
             </div>
         </div>
     </footer>
+
     <script src="assets/js/main.js"></script>
 </body>
 </html>

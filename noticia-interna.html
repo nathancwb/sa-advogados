@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
 
     <!-- ═══════════ SEO PRIMÁRIO ═══════════ -->
     <title>SA Advogados | Escritório de Advocacia</title>
@@ -66,11 +66,59 @@
           }
         },
         {
+          "@type": ["Organization", "LegalService", "LocalBusiness"],
+          "@id": "https://www.saadvogados.com/#organization",
+          "name": "SA Advogados",
+          "alternateName": "SA Advogados — Advocacia e Consultoria Jurídica",
+          "url": "https://www.saadvogados.com/",
+          "logo": "https://www.saadvogados.com/assets/img/LOGOTIPO.png",
+          "email": "comercial@saadvogados.com",
+          "telephone": "+55-48-99138-1200",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+55-48-99138-1200",
+              "contactType": "customer service",
+              "email": "comercial@saadvogados.com",
+              "areaServed": "BR",
+              "availableLanguage": ["Portuguese", "English"]
+            },
+            {
+              "@type": "ContactPoint",
+              "telephone": "+55-48-99138-1200",
+              "contactType": "legal inquiries",
+              "email": "comercial@saadvogados.com",
+              "areaServed": "BR",
+              "availableLanguage": ["Portuguese", "English"]
+            }
+          ],
+          "address": [
+            {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Pref. Osmar Cunha, 416, Sala 1108",
+              "addressLocality": "Florianópolis",
+              "addressRegion": "SC",
+              "postalCode": "88015-100",
+              "addressCountry": "BR",
+              "name": "Matriz — Florianópolis/SC"
+            },
+            {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Sete de Setembro, 1925",
+              "addressLocality": "Porto Velho",
+              "addressRegion": "RO",
+              "postalCode": "76804-123",
+              "addressCountry": "BR",
+              "name": "Filial — Porto Velho/RO"
+            }
+          ]
+        },
+        {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.saadvogados.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Artigos", "item": "https://www.saadvogados.com/artigos" },
-            { "@type": "ListItem", "position": 3, "name": "STF e a Base de Cálculo do ICMS", "item": "https://www.saadvogados.com/artigo-interno" }
+            { "@type": "ListItem", "position": 2, "name": "Notícias", "item": "https://www.saadvogados.com/noticias" },
+            { "@type": "ListItem", "position": 3, "name": "Notícia Jurídica", "item": "https://www.saadvogados.com/noticia-interna" }
           ]
         }
       ]
@@ -220,8 +268,14 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2025 SA Advogados. Todos os direitos reservados. <span>Atendimento: Seg à Sex - 08:00h às 18:00h.</span></p>
+            <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+                <p>&copy; 2026 SA Advogados. Todos os direitos reservados. <span>Atendimento: Seg à Sex - 08:00h às 18:00h.</span></p>
+                <div class="footer-legal-links" style="display:flex;gap:1.5rem;font-size:0.85rem;">
+                    <a href="/sobre" style="color:#888;">Sobre</a>
+                    <a href="/contato" style="color:#888;">Contato</a>
+                    <a href="/privacidade" style="color:#888;">Privacidade</a>
+                    <a href="/termos" style="color:#888;">Termos</a>
+                </div>
             </div>
         </div>
     </footer>

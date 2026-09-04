@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- ═══════════ SEO PRIMÁRIO ═══════════ -->
     <title>SA Advogados | Escritório de Advocacia</title>
     <meta name="description" content="Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.">
-    <meta name="keywords" content="advogado florianópolis, advogado porto velho, direito tributário, direito médico, direito público">
-    <meta name="author" content="SA Advogados">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://www.saadvogados.com/noticias">
-    <link rel="alternate" type="text/markdown" href="https://www.saadvogados.com/noticias.md">
-
-    <!-- ═══════════ GEO ═══════════ -->
-    <meta name="geo.region" content="BR-SC">
-    <meta name="geo.placename" content="Florianópolis, Santa Catarina">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://www.saadvogados.com/404">
+    <link rel="alternate" type="text/markdown" href="https://www.saadvogados.com/404.md">
 
     <!-- ═══════════ OPEN GRAPH ═══════════ -->
     <meta property="og:type" content="website">
@@ -22,12 +19,10 @@
     <meta property="og:site_name" content="SA Advogados">
     <meta property="og:title" content="SA Advogados | Escritório de Advocacia">
     <meta property="og:description" content="Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.">
-    <meta property="og:url" content="https://www.saadvogados.com/noticias">
+    <meta property="og:url" content="https://www.saadvogados.com/404">
     <meta property="og:image" content="https://www.saadvogados.com/assets/img/simbolo.png">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
 
-    <!-- ═══════════ TWITTER ═══════════ -->
+    <!-- ═══════════ TWITTER CARD ═══════════ -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SA Advogados | Escritório de Advocacia">
     <meta name="twitter:description" content="Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.">
@@ -39,14 +34,13 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "CollectionPage",
-          "@id": "https://www.saadvogados.com/noticias#collection",
-          "url": "https://www.saadvogados.com/noticias",
-          "name": "Notícias Jurídicas — SA Advogados",
-          "description": "Notícias jurídicas que impactam empresas e profissionais em Florianópolis/SC e Porto Velho/RO.",
+          "@type": "WebPage",
+          "@id": "https://www.saadvogados.com/404#webpage",
+          "url": "https://www.saadvogados.com/404",
+          "name": "Página Não Encontrada — 404 | SA Advogados",
+          "description": "Página de erro 404 com links úteis para navegação.",
           "inLanguage": "pt-BR",
-          "isPartOf": { "@id": "https://www.saadvogados.com/#website" },
-          "about": { "@id": "https://www.saadvogados.com/#organization" }
+          "isPartOf": { "@id": "https://www.saadvogados.com/#website" }
         },
         {
           "@type": ["Organization", "LegalService", "LocalBusiness"],
@@ -55,6 +49,7 @@
           "alternateName": "SA Advogados — Advocacia e Consultoria Jurídica",
           "url": "https://www.saadvogados.com/",
           "logo": "https://www.saadvogados.com/assets/img/LOGOTIPO.png",
+          "image": "https://www.saadvogados.com/assets/images/CAPA.jpg",
           "email": "comercial@saadvogados.com",
           "telephone": "+55-48-99138-1200",
           "contactPoint": [
@@ -95,125 +90,180 @@
               "name": "Filial — Porto Velho/RO"
             }
           ]
-        },
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.saadvogados.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Notícias", "item": "https://www.saadvogados.com/noticias" }
-          ]
         }
       ]
     }
     </script>
 
+    <!-- ═══════════ FONTS & CSS ═══════════ -->
     <link rel="stylesheet" href="/assets/fonts/fonts.css">
     <link rel="stylesheet" href="/assets/fonts/remixicon.css">
-    <link rel="stylesheet" href="assets/css/style.css?version=13">
-    <link rel="stylesheet" href="assets/css/blog.css">
+    <link rel="stylesheet" href="assets/css/style.css?version=14">
+    <style>
+        .error-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px var(--spacing-md) 60px;
+        }
+        .error-code {
+            font-size: clamp(5rem, 15vw, 10rem);
+            font-weight: 300;
+            line-height: 1;
+            color: var(--color-gray);
+            opacity: 0.25;
+            font-family: var(--font-serif);
+            letter-spacing: -0.05em;
+            margin-bottom: var(--spacing-sm);
+        }
+        .error-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        .error-desc {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-md);
+            font-size: 1.05rem;
+            color: #666;
+        }
+        .error-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        .error-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--color-border);
+        }
+        .error-link-card {
+            padding: 1.25rem;
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .error-link-card:hover {
+            border-color: var(--color-gray);
+            transform: translateY(-2px);
+        }
+        .error-link-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .error-link-card p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
 </head>
-<body class="light-mode interior-page">
+<body class="light-mode">
+    
     <header class="header" id="header">
         <nav class="nav-container">
             <a href="/" class="brand-logo">
                 <img src="assets/img/LOGOTIPO.png" alt="SA Advogados" class="logo-img logo-light">
                 <img src="assets/img/logopreot.png" alt="SA Advogados" class="logo-img logo-dark">
             </a>
+            
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" style="color: var(--color-gray);">Escritório <i class="ri-arrow-down-s-line"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/#especialidades" class="dropdown-item">Área de Atuação</a></li>
-                            <li><a href="/#sobre" class="dropdown-item">Sobre Nós</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" style="color: var(--color-gray);">Conteúdo <i class="ri-arrow-down-s-line"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/artigos" class="dropdown-item">Artigos</a></li>
-                            <li><a href="/noticias" class="dropdown-item">Notícias</a></li>
-                            <li><a href="/videos" class="dropdown-item">Vídeos</a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a href="/" class="nav-link">Início</a></li>
+                    <li class="nav-item"><a href="/sobre" class="nav-link">Sobre Nós</a></li>
+                    <li class="nav-item"><a href="/artigos" class="nav-link">Artigos</a></li>
+                    <li class="nav-item"><a href="/noticias" class="nav-link">Notícias</a></li>
                     <li class="nav-item">
-                        <a href="/#contato" class="nav-link nav-btn" style="color: var(--color-gray); border-color: var(--color-gray);">Contato</a>
+                        <a href="/contato" class="nav-link nav-btn">Contato</a>
                     </li>
                 </ul>
             </div>
+            
             <button class="nav-toggle" id="nav-toggle" aria-label="Abrir Menu">
-                <i class="ri-menu-4-line" style="color: var(--color-gray);"></i>
+                <i class="ri-menu-4-line"></i>
             </button>
         </nav>
     </header>
+
     <main class="main">
-        <section class="page-header">
-            <div class="container container-narrow text-center fade-up">
-                <span class="subtitle">ATUALIDADES</span>
-                <h1 class="title" style="font-size: clamp(2.5rem, 5vw, 4rem); margin: 1rem 0;">Nossas <span class="italic-serif">Notícias</span></h1>
-                <p class="description" style="color: #666; font-size: 1.1rem;">As principais atualizações jurídicas que impactam Santa Catarina e Rondônia.</p>
-            </div>
-        </section>
-        <section class="section blog-listing pt-0">
+        <section class="error-section">
             <div class="container">
-                <div class="blog-grid" id="noticias-grid">
-                    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:#999;">Carregando notícias...</div>
+                <div class="error-code">404</div>
+                <span class="subtitle">Página Não Encontrada</span>
+                <h1 class="error-title">O conteúdo solicitado não está disponível.</h1>
+                <p class="error-desc">
+                    O endereço acessado pode ter sido movido, renomeado ou não existe. Utilize os atalhos abaixo para navegar pelos nossos serviços jurídicos, artigos e canais de atendimento.
+                </p>
+                <div class="error-actions">
+                    <a href="/" class="btn-primary">
+                        <i class="ri-home-4-line"></i> Página Inicial
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=5548991381200&text=Ol%C3%A1%2C%20estava%20navegando%20no%20site%20da%20SA%20Advogados%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida." class="btn-primary" target="_blank" rel="noopener" style="background:#25D366;color:#fff;border-color:#25D366;">
+                        <i class="ri-whatsapp-line"></i> Falar no WhatsApp
+                    </a>
+                </div>
+
+                <div class="error-links-grid">
+                    <a href="/sobre" class="error-link-card">
+                        <h4>Sobre o Escritório <i class="ri-arrow-right-up-line"></i></h4>
+                        <p>Conheça nossa história, equipe de advogados especialistas e sedes em Florianópolis/SC e Porto Velho/RO.</p>
+                    </a>
+                    <a href="/artigos" class="error-link-card">
+                        <h4>Artigos Jurídicos <i class="ri-arrow-right-up-line"></i></h4>
+                        <p>Análises aprofundadas sobre Direito Tributário, Médico, Empresarial, LGPD e Licitações.</p>
+                    </a>
+                    <a href="/noticias" class="error-link-card">
+                        <h4>Notícias do Setor <i class="ri-arrow-right-up-line"></i></h4>
+                        <p>Atualizações legislativas, jurisprudência recente e comunicados institucionais.</p>
+                    </a>
+                    <a href="/contato" class="error-link-card">
+                        <h4>Fale Conosco <i class="ri-arrow-right-up-line"></i></h4>
+                        <p>Agende uma consulta ou envie sua demanda para nossa equipe especializada.</p>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <script>
-    (async function() {
-        const grid = document.getElementById('noticias-grid');
-        const placeholder = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop';
-        try {
-            const items = await fetch('/api/list-noticias').then(r => r.json());
-            if (!items || items.length === 0) {
-                grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#999;">Nenhuma notícia encontrada.</p>';
-                return;
-            }
-            grid.innerHTML = items.map(function(n, i) {
-                return '<article class="blog-card fade-up visible" style="--delay:' + (i % 3) + '">' +
-                    '<a href="/noticias/' + n.slug + '" class="blog-img-link">' +
-                    '<img src="' + (n.thumbnail || placeholder) + '" alt="' + n.title + '" class="blog-img" loading="lazy">' +
-                    '</a><div class="blog-content">' +
-                    '<span class="blog-tag">' + (n.source ? 'Fonte: ' + n.source : 'Notícia') + '</span>' +
-                    '<h3 class="blog-title"><a href="/noticias/' + n.slug + '">' + n.title + '</a></h3>' +
-                    '<p class="blog-excerpt">' + n.excerpt + '</p>' +
-                    '<div class="blog-meta"><span class="blog-date">' + n.date + '</span></div>' +
-                    '</div></article>';
-            }).join('');
-        } catch(e) {
-            grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:2rem;color:#666;">Não foi possível carregar as notícias. Tente recarregar a página.</p>';
-        }
-    })();
-    </script>
-
     <footer class="footer">
         <div class="container footer-container">
-            <div class="footer-brand fade-up">
+            <div class="footer-brand">
                 <a href="/" class="brand-logo footer-logo">
                     <img src="assets/img/LOGOTIPO.png" alt="SA Advogados" class="logo-img">
                 </a>
                 <p class="footer-desc">Excelência técnica e sensibilidade prática na advocacia de alto padrão.</p>
             </div>
-            <div class="footer-locations fade-up" style="--delay: 1">
+
+            <div class="footer-locations">
                 <h3 class="footer-title">Unidades</h3>
                 <address class="footer-address">
                     <a href="https://maps.google.com/?q=Av.+Pref.+Osmar+Cunha,+416,+Sala+1108+-+Centro,+Florianopolis+-+SC,+88015-100" target="_blank" rel="noopener" class="footer-map-link">
-                        <strong>Matriz — Florianópolis/SC</strong><br>
-                        Av. Pref. Osmar Cunha, 416, Sala 1108<br>Centro, CEP 88015-100
+                        <strong>Matriz - Florianópolis/SC</strong><br>
+                        Av. Pref. Osmar Cunha, 416, Sala 1108<br>
+                        Centro, CEP 88015-100
                     </a>
                 </address>
                 <address class="footer-address pt-2">
                     <a href="https://maps.google.com/?q=Av.+Sete+de+Setembro,+1925+-+Nossa+Senhora+das+Gracas,+Porto+Velho+-+RO,+76804-123" target="_blank" rel="noopener" class="footer-map-link">
-                        <strong>Filial — Porto Velho/RO</strong><br>
-                        Av. Sete de Setembro, 1925<br>Nossa Senhora das Graças, CEP 76804-123
+                        <strong>Filial - Porto Velho/RO</strong><br>
+                        Av. Sete de Setembro, 1925<br>
+                        Nossa Senhora das Graças, CEP 76804-123
                     </a>
                 </address>
             </div>
-            <div class="footer-contact fade-up" style="--delay: 2">
+
+            <div class="footer-contact">
                 <h3 class="footer-title">Contato</h3>
                 <ul class="footer-links">
                     <li><a href="tel:+5548991381200" class="footer-link">(48) 99138-1200</a></li>
@@ -237,6 +287,7 @@
             </div>
         </div>
     </footer>
+
     <script src="assets/js/main.js"></script>
 </body>
 </html>

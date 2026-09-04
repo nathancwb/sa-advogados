@@ -14,6 +14,7 @@
     <meta name="author" content="SA Advogados">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://www.saadvogados.com/">
+    <link rel="alternate" type="text/markdown" href="https://www.saadvogados.com/index.md">
 
     <!-- ═══════════ GEO / LOCALIZAÇÃO ═══════════ -->
     <meta name="geo.region" content="BR-SC">
@@ -28,7 +29,7 @@
     <meta property="og:title" content="SA Advogados | Escritório de Advocacia">
     <meta property="og:description" content="Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.">
     <meta property="og:url" content="https://www.saadvogados.com/">
-    <meta property="og:image" content="https://www.saadvogados.com/og.jpg">
+    <meta property="og:image" content="https://www.saadvogados.com/assets/img/simbolo.png">
     <meta property="og:image:secure_url" content="https://www.saadvogados.com/og.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1024">
@@ -39,7 +40,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SA Advogados | Escritório de Advocacia">
     <meta name="twitter:description" content="Escritório de advocacia referência em Florianópolis e Porto Velho, especializado em Direito Tributário, Público, Empresarial e Médico.">
-    <meta name="twitter:image" content="https://www.saadvogados.com/og.jpg">
+    <meta name="twitter:image" content="https://www.saadvogados.com/assets/img/simbolo.png">
     <meta name="twitter:image:alt" content="SA Advogados — Escritório de Advocacia">
     <!-- ═══════════ SCHEMA.ORG JSON-LD — SEO + GEO ═══════════ -->
     <script type="application/ld+json">
@@ -60,7 +61,7 @@
           }
         },
         {
-          "@type": ["LegalService", "LocalBusiness"],
+          "@type": ["Organization", "LegalService", "LocalBusiness"],
           "@id": "https://www.saadvogados.com/#organization",
           "name": "SA Advogados",
           "alternateName": "SA Advogados — Advocacia e Consultoria Jurídica",
@@ -73,6 +74,24 @@
           "priceRange": "$$",
           "currenciesAccepted": "BRL",
           "paymentAccepted": "Pix, Transferência Bancária",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+55-48-99138-1200",
+              "contactType": "customer service",
+              "email": "comercial@saadvogados.com",
+              "areaServed": "BR",
+              "availableLanguage": ["Portuguese", "English"]
+            },
+            {
+              "@type": "ContactPoint",
+              "telephone": "+55-48-99138-1200",
+              "contactType": "legal inquiries",
+              "email": "comercial@saadvogados.com",
+              "areaServed": "BR",
+              "availableLanguage": ["Portuguese", "English"]
+            }
+          ],
           "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
@@ -618,8 +637,14 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2025 SA Advogados. Todos os direitos reservados. <span>Atendimento: Seg à Sex - 08:00h às 18:00h.</span></p>
+            <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+                <p>&copy; 2026 SA Advogados. Todos os direitos reservados. <span>Atendimento: Seg à Sex - 08:00h às 18:00h.</span></p>
+                <div class="footer-legal-links" style="display:flex;gap:1.5rem;font-size:0.85rem;">
+                    <a href="/sobre" style="color:#888;">Sobre</a>
+                    <a href="/contato" style="color:#888;">Contato</a>
+                    <a href="/privacidade" style="color:#888;">Privacidade</a>
+                    <a href="/termos" style="color:#888;">Termos</a>
+                </div>
             </div>
         </div>
     </footer>

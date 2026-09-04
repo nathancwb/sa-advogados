@@ -62,7 +62,23 @@ function updateSeo(filePath) {
 }
 
 // Atualizar os HTMLs
-const htmlFiles = ['index.html', 'artigos.html', 'artigo-interno.html'];
+const htmlFiles = [
+  'index.html',
+  'sobre.html',
+  'about.html',
+  'contato.html',
+  'contact.html',
+  'privacidade.html',
+  'privacy.html',
+  'termos.html',
+  'terms.html',
+  'artigos.html',
+  'artigo-interno.html',
+  'noticias.html',
+  'noticia-interna.html',
+  'videos.html',
+  '404.html'
+];
 htmlFiles.forEach(file => {
   const filePath = path.join(__dirname, file);
   if (fs.existsSync(filePath)) {
